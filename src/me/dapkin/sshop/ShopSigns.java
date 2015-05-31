@@ -1,0 +1,706 @@
+package me.dapkin.sshop;
+
+import java.text.NumberFormat;
+import java.util.Locale;
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Material;
+import org.bukkit.block.Sign;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.block.SignChangeEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+
+public class ShopSigns
+  implements Listener
+{
+  public final ShopPlugin ref;
+  
+  public ShopSigns(ShopPlugin inst)
+  {
+    this.ref = inst;
+  }
+  
+  public boolean isInt(String s)
+  {
+    try
+    {
+      Integer.parseInt(s);
+      return true;
+    }
+    catch (NumberFormatException ex) {}
+    return false;
+  }
+  
+  @EventHandler
+  public void onSignPlacement(SignChangeEvent e)
+  {
+    Player p = e.getPlayer();
+    if (e.getLine(0).equals("[SpawnerShop]")) {
+      if ((p.hasPermission("spawnershop.signs.create")) || (p.isOp()))
+      {
+        String line2 = e.getLine(1);
+        String line3 = e.getLine(2);
+        if (line2.equalsIgnoreCase("Buy"))
+        {
+          String price = e.getLine(3);
+          if (line3.equalsIgnoreCase("Enderman"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Enderman");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.enderman")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Blaze"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Blaze");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.blaze")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Skeleton"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Skeleton");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.skeleton")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Zombie"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Zombie");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.zombie")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Creeper"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Creeper");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.creeper")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("CaveSpider"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Cave Spider");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.cavespider")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Spider"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Spider");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.spider")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Wolf"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Wolf");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.wolf")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Chicken"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Chicken");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.chicken")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Cow"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Cow");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.cow")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Pig"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Pig");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.pig")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Ocelot"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Ocelot");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.ocelot")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Mushroom Cow"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Mushroom Cow");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.mushroom")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Sheep"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Sheep");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.sheep")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Bat"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Bat");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.bat")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Rabbit"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Rabbit");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.rabbit")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Squid"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Squid");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.squid")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Villager"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Villager");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.villager")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("ZombiePigman"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Zombie Pigman");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.zombiepig")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Silverfish"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Silverfish");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.silverfish")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("IronGolem"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Iron Golem");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.irongolem")));
+            }
+          }
+          else
+          {
+            p.sendMessage("You have incorrectly formatted a SPAWNERSHOP sign!");
+            p.sendMessage("Here is the correct FORMAT!");
+            e.setLine(0, "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "<MobType>");
+            e.setLine(3, "Price");
+          }
+        }
+        else
+        {
+          p.sendMessage("You have incorrectly formatted a SPAWNERSHOP sign!");
+          p.sendMessage("Here is the correct FORMAT!");
+          e.setLine(0, "[SpawnerShop]");
+          e.setLine(1, "Buy");
+          e.setLine(2, "<MobType>");
+          e.setLine(3, "Price");
+        }
+      }
+      else
+      {
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.nopermission")));
+      }
+    }
+  }
+  
+  @EventHandler
+  public void onRightClick(PlayerInteractEvent e)
+  {
+    Player p = e.getPlayer();
+    if ((e.getAction() == Action.RIGHT_CLICK_BLOCK) && (
+      (e.getClickedBlock().getType() == Material.SIGN) || (e.getClickedBlock().getType() == Material.WALL_SIGN) || (e.getClickedBlock().getType() == Material.SIGN_POST)))
+    {
+      Sign sign = (Sign)e.getClickedBlock().getState();
+      if (sign.getLine(0).equalsIgnoreCase(ChatColor.BLUE + "[SpawnerShop]")) {
+        if ((p.hasPermission("spawnershop.signs.use")) || (p.isOp()))
+        {
+          String line3 = sign.getLine(2);
+          String error = ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.nomoney"));
+          String price = sign.getLine(3);
+          price = price.replace(this.ref.config.getString("options.currencysign"), "");
+          price = price.replace(",", "");
+          int rprice = Integer.parseInt(price);
+          if (sign.getLine(1).equalsIgnoreCase("Buy")) {
+            if (line3.equalsIgnoreCase("Enderman"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Enderman}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }else if(line3.equalsIgnoreCase("Blaze")) {
+            	if(ShopPlugin.economy.getBalance(p) >= rprice) {
+            		ShopPlugin.economy.withdrawPlayer(p, rprice);
+            		Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Blaze}}");
+            		 p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+            	}else {
+            		p.sendMessage(error);
+            	}
+            }
+            else if (line3.equalsIgnoreCase("Skeleton"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Skeleton}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Zombie"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Zombie}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Creeper"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Creeper}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Cave Spider"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:CaveSpider}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Spider"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Spider}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Wolf"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Wolf}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Chicken"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, this.ref.getConfig().getInt("prices.chicken"));
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Chicken}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Cow"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Cow}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Pig"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Pig}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Ocelot"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Ozelot}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Mushroom Cow"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:MushroomCow}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Sheep"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Sheep}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Bat"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Bat}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Rabbit"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Rabbit}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Squid"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Squid}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Villager"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Villager}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Zombie Pigman"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:PigZombie}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Silverfish"))
+            {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Silverfish}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+            else if (line3.equalsIgnoreCase("Iron Golem")) {
+              if (ShopPlugin.economy.getBalance(p) >= rprice)
+              {
+                ShopPlugin.economy.withdrawPlayer(p, rprice);
+                Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:VillagerGolem}}");
+                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+              }
+              else
+              {
+                p.sendMessage(error);
+              }
+            }
+          }
+        }
+        else
+        {
+          p.sendMessage(ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.nopermission")));
+        }
+      }
+    }
+  }
+}
