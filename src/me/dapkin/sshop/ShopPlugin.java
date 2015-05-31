@@ -497,8 +497,7 @@ public class ShopPlugin extends JavaPlugin implements Listener {
       (cmd.getName().equalsIgnoreCase("spawners"))) {
       if (args.length == 0)
       {
-        if (p.hasPermission("spawnershop.use"))
-        {
+        if (p.hasPermission("spawnershop.use")) {
           if (this.cooldown.containsKey(p.getName())) {
             long diff = (System.currentTimeMillis() - ((Long)this.cooldown.get(p.getName())).longValue()) / 1000L;
             if (diff < this.cooldown_time) {
