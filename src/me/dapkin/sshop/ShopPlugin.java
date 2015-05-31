@@ -489,35 +489,33 @@ public class ShopPlugin extends JavaPlugin implements Listener {
   }
   
   public int cooldown_time = config.getInt("options.cooldown");
-  
-  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
-  {
+  @Override
+  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
     Player p = (Player)sender;
-    if (((p instanceof Player)) && 
-      (cmd.getName().equalsIgnoreCase("spawners"))) {
+    if (((p instanceof Player)) && (cmd.getName().equalsIgnoreCase("spawners"))) {
       if (args.length == 0) {
         if (p.hasPermission("spawnershop.use")) {
-          if (this.cooldown.containsKey(p.getName())) {
-            long diff = (System.currentTimeMillis() - ((Long)this.cooldown.get(p.getName())).longValue()) / 1000L;
-            if (diff < this.cooldown_time) {
+          if (cooldown.containsKey(p.getName())) {
+            long diff = (System.currentTimeMillis() - ((Long)cooldown.get(p.getName())).longValue()) / 1000L;
+            if (diff < cooldown_time) {
               p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.cooldownmessage")));
-            } else {
+            }else {
               p.openInventory(spawnerInv);
               p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.openmessage")));
             }
-          } else {
+          }else {
             p.openInventory(spawnerInv);
             p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.openmessage")));
           }
-        } else {
+        }else {
           p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.nopermission")));
         }
-      } else if ((args.length == 1) && (args[0].equalsIgnoreCase("reload"))) {
+      }else if ((args.length == 1) && (args[0].equalsIgnoreCase("reload"))) {
         if ((p.hasPermission("spawnershop.reload")) || (p.isOp())) {
           spawnerInv.clear();
           setupInv();
           p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.reloadsuccess")));
-        } else {
+        }else {
           p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.nopermission")));
         }
       }
