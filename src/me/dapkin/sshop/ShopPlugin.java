@@ -499,8 +499,7 @@ public class ShopPlugin extends JavaPlugin implements Listener {
       {
         if (p.hasPermission("spawnershop.use"))
         {
-          if (this.cooldown.containsKey(p.getName()))
-          {
+          if (this.cooldown.containsKey(p.getName())) {
             long diff = (System.currentTimeMillis() - ((Long)this.cooldown.get(p.getName())).longValue()) / 1000L;
             if (diff < this.cooldown_time) {
               p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.cooldownmessage")));
