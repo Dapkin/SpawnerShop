@@ -79,6 +79,10 @@ public class ShopPlugin extends JavaPlugin implements Listener {
     config.addDefault("prices.zombiepig", 100000);
     config.addDefault("prices.silverfish", 100000);
     config.addDefault("prices.irongolem", 100000);
+    config.addDefault("prices.slime", 100000);
+    config.addDefault("prices.witherskeleton", 100000);
+    config.addDefault("prices.horse", 100000);
+    config.addDefault("prices.witch", 100000);
     
     config.addDefault("spawners.enderman", true);
     config.addDefault("spawners.blaze", true);
@@ -101,6 +105,10 @@ public class ShopPlugin extends JavaPlugin implements Listener {
     config.addDefault("spawners.zombiepigman", true);
     config.addDefault("spawners.silverfish", true);
     config.addDefault("spawners.irongolem", true);
+    config.addDefault("spawners.slime", true);
+    config.addDefault("spawners.witherskeleton", true);
+    config.addDefault("spawners.horse", true);
+    config.addDefault("spawners.witch", true);
     
     config.options().copyDefaults(true);
     saveConfig();
@@ -311,9 +319,26 @@ public class ShopPlugin extends JavaPlugin implements Listener {
         SkullMeta igolemskull = (SkullMeta)golemskull.getItemMeta();
         igolemskull.setOwner("MHF_Golem");
         igolemskull.setDisplayName(ChatColor.WHITE + "Iron Golem Spawner");
-        igolemskull.setLore(Arrays.asList(new String[] { ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.irongolem")) }));
+        igolemskull.setLore(Arrays.asList(ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.irongolem"))));
         golemskull.setItemMeta(igolemskull);
         spawnerInv.addItem(golemskull);
+      }
+      if(config.getBoolean("spawners.slime")) {
+    	  ItemStack slimeskull = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
+    	  SkullMeta islimeskull = (SkullMeta) slimeskull.getItemMeta();
+    	  islimeskull.setOwner("MHF_Slime");
+    	  islimeskull.setDisplayName(ChatColor.WHITE + "Slime Spawner");
+    	  islimeskull.setLore(Arrays.asList(ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.slime"))));
+    	  slimeskull.setItemMeta(islimeskull);
+    	  spawnerInv.addItem(slimeskull);
+      }
+      if(config.getBoolean("spawners.witherskeleton")) {
+    	  ItemStack witherskull = new ItemStack(Material.SKULL_ITEM, 1, (short)1);
+    	  SkullMeta iwitherskull = (SkullMeta) witherskull.getItemMeta();
+    	  iwitherskull.setDisplayName(ChatColor.WHITE + "Wither Skeleton Skull");
+    	  iwitherskull.setLore(Arrays.asList(ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.witherskeleton"))));
+    	  witherskull.setItemMeta(iwitherskull);
+    	  spawnerInv.addItem(witherskull);
       }
     }else{
       ItemStack mushroom = new ItemStack(Material.MONSTER_EGG, 1, (short)96);
