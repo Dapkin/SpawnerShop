@@ -265,6 +265,39 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
+      }else if (clicked.getItemMeta().getDisplayName().contains("Slime Spawner")) {
+          if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.slime")) {
+              ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.slime"));
+              Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Slime}}");
+              player.sendMessage(ChatColor.GREEN + ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(ref.getConfig().getInt("prices.slime")) + " has been taken from your account.");
+              player.closeInventory();
+              ref.cooldown.put(player.getName(), System.currentTimeMillis());
+            }else {
+              player.sendMessage(error);
+              player.closeInventory();
+            }
+      }else if (clicked.getItemMeta().getDisplayName().contains("Horse Spawner")) {
+          if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.horse")) {
+              ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.horse"));
+              Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:EntityHorse}}");
+              player.sendMessage(ChatColor.GREEN + ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(ref.getConfig().getInt("prices.horse")) + " has been taken from your account.");
+              player.closeInventory();
+              ref.cooldown.put(player.getName(), System.currentTimeMillis());
+            }else {
+              player.sendMessage(error);
+              player.closeInventory();
+            }
+      }else if (clicked.getItemMeta().getDisplayName().contains("Witch Spawner")) {
+          if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.witch")) {
+              ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.witch"));
+              Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Witch}}");
+              player.sendMessage(ChatColor.GREEN + ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(ref.getConfig().getInt("prices.witch")) + " has been taken from your account.");
+              player.closeInventory();
+              ref.cooldown.put(player.getName(), System.currentTimeMillis());
+            }else {
+              player.sendMessage(error);
+              player.closeInventory();
+            }
       }
     }
   }

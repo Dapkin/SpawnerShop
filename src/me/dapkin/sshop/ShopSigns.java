@@ -382,6 +382,54 @@ public class ShopSigns
               e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.irongolem")));
             }
           }
+          else if (line3.equalsIgnoreCase("Slime"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Slime");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.slime")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Horse"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Horse");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.horse")));
+            }
+          }
+          else if (line3.equalsIgnoreCase("Witch"))
+          {
+            e.setLine(0, ChatColor.BLUE + "[SpawnerShop]");
+            e.setLine(1, "Buy");
+            e.setLine(2, "Witch");
+            if (isInt(price))
+            {
+              int price1 = Integer.parseInt(price);
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+            }
+            else
+            {
+              p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
+              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.witch")));
+            }
+          }
           else
           {
             p.sendMessage("You have incorrectly formatted a SPAWNERSHOP sign!");
@@ -694,6 +742,42 @@ public class ShopSigns
                 p.sendMessage(error);
               }
             }
+            else if (line3.equalsIgnoreCase("Slime")) {
+                if (ShopPlugin.economy.getBalance(p) >= rprice)
+                {
+                  ShopPlugin.economy.withdrawPlayer(p, rprice);
+                  Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Slime}}");
+                  p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                }
+                else
+                {
+                  p.sendMessage(error);
+                }
+              }
+            else if (line3.equalsIgnoreCase("Horse")) {
+                if (ShopPlugin.economy.getBalance(p) >= rprice)
+                {
+                  ShopPlugin.economy.withdrawPlayer(p, rprice);
+                  Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:EntityHorse}}");
+                  p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                }
+                else
+                {
+                  p.sendMessage(error);
+                }
+              }
+            else if (line3.equalsIgnoreCase("Witch")) {
+                if (ShopPlugin.economy.getBalance(p) >= rprice)
+                {
+                  ShopPlugin.economy.withdrawPlayer(p, rprice);
+                  Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Witch}}");
+                  p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                }
+                else
+                {
+                  p.sendMessage(error);
+                }
+              }
           }
         }
         else

@@ -80,7 +80,6 @@ public class ShopPlugin extends JavaPlugin implements Listener {
     config.addDefault("prices.silverfish", 100000);
     config.addDefault("prices.irongolem", 100000);
     config.addDefault("prices.slime", 100000);
-    config.addDefault("prices.witherskeleton", 100000);
     config.addDefault("prices.horse", 100000);
     config.addDefault("prices.witch", 100000);
     
@@ -106,7 +105,6 @@ public class ShopPlugin extends JavaPlugin implements Listener {
     config.addDefault("spawners.silverfish", true);
     config.addDefault("spawners.irongolem", true);
     config.addDefault("spawners.slime", true);
-    config.addDefault("spawners.witherskeleton", true);
     config.addDefault("spawners.horse", true);
     config.addDefault("spawners.witch", true);
     
@@ -332,13 +330,23 @@ public class ShopPlugin extends JavaPlugin implements Listener {
     	  slimeskull.setItemMeta(islimeskull);
     	  spawnerInv.addItem(slimeskull);
       }
-      if(config.getBoolean("spawners.witherskeleton")) {
-    	  ItemStack witherskull = new ItemStack(Material.SKULL_ITEM, 1, (short)1);
-    	  SkullMeta iwitherskull = (SkullMeta) witherskull.getItemMeta();
-    	  iwitherskull.setDisplayName(ChatColor.WHITE + "Wither Skeleton Skull");
-    	  iwitherskull.setLore(Arrays.asList(ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.witherskeleton"))));
-    	  witherskull.setItemMeta(iwitherskull);
-    	  spawnerInv.addItem(witherskull);
+      if(config.getBoolean("spawners.horse")) {
+    	  ItemStack horseskull = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
+    	  SkullMeta ihorseskull = (SkullMeta) horseskull.getItemMeta();
+    	  ihorseskull.setOwner("gavertoso");
+    	  ihorseskull.setDisplayName(ChatColor.WHITE + "Horse Spawner");
+    	  ihorseskull.setLore(Arrays.asList(ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.horse"))));
+    	  horseskull.setItemMeta(ihorseskull);
+    	  spawnerInv.addItem(horseskull);
+      }
+      if(config.getBoolean("spawners.witch")) {
+    	  ItemStack witchskull = new ItemStack(Material.SKULL_ITEM, 1, (short)3);
+    	  SkullMeta iwitchskull = (SkullMeta) witchskull.getItemMeta();
+    	  iwitchskull.setOwner("scrafbrothers4");
+    	  iwitchskull.setDisplayName(ChatColor.WHITE + "Witch Spawner");
+    	  iwitchskull.setLore(Arrays.asList(ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.witch"))));
+    	  witchskull.setItemMeta(iwitchskull);
+    	  spawnerInv.addItem(witchskull);
       }
     }else{
       ItemStack mushroom = new ItemStack(Material.MONSTER_EGG, 1, (short)96);
@@ -362,6 +370,9 @@ public class ShopPlugin extends JavaPlugin implements Listener {
       ItemStack zpig = new ItemStack(Material.MONSTER_EGG, 1, (short)57);
       ItemStack sfish = new ItemStack(Material.MONSTER_EGG, 1, (short)60);
       ItemStack igolem = new ItemStack(Material.MONSTER_EGG, 1, (short)99);
+      ItemStack slime = new ItemStack(Material.MONSTER_EGG, 1, (short)55);
+      ItemStack horse = new ItemStack(Material.MONSTER_EGG, 1, (short)100);
+      ItemStack witch = new ItemStack(Material.MONSTER_EGG, 1, (short)66);
       
       if (config.getBoolean("spawners.enderman")) {
         ItemMeta ienderman = enderman.getItemMeta();
@@ -509,6 +520,27 @@ public class ShopPlugin extends JavaPlugin implements Listener {
         iigolem.setLore(Arrays.asList(new String[] { ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.irongolem")) }));
         igolem.setItemMeta(iigolem);
         spawnerInv.addItem(igolem);
+      }
+      if (config.getBoolean("spawners.slime")) {
+    	ItemMeta islime = slime.getItemMeta();
+    	islime.setDisplayName(ChatColor.WHITE + "Slime Spawner");
+    	islime.setLore(Arrays.asList(new String[] { ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.slime")) }));
+        slime.setItemMeta(islime);
+        spawnerInv.addItem(slime);
+      }
+      if (config.getBoolean("spawners.horse")) {
+    	ItemMeta ihorse = horse.getItemMeta();
+    	ihorse.setDisplayName(ChatColor.WHITE + "Horse Spawner");
+    	ihorse.setLore(Arrays.asList(new String[] { ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.horse")) }));
+        horse.setItemMeta(ihorse);
+        spawnerInv.addItem(horse);
+      }
+      if (config.getBoolean("spawners.witch")) {
+    	ItemMeta iwitch = witch.getItemMeta();
+    	iwitch.setDisplayName(ChatColor.WHITE + "Witch Spawner");
+    	iwitch.setLore(Arrays.asList(new String[] { ChatColor.GREEN + "Price: " + config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(getConfig().getInt("prices.witch")) }));
+        witch.setItemMeta(iwitch);
+        spawnerInv.addItem(witch);
       }
     }
   }
