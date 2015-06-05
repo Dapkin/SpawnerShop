@@ -2,6 +2,7 @@ package me.dapkin.sshop;
 
 import java.text.NumberFormat;
 import java.util.Locale;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -29,7 +30,8 @@ public class ShopListeners implements Listener {
       if ((clicked == null) || (clicked.getType() == Material.AIR)) {
         return;
       }
-      if (clicked.getItemMeta().getDisplayName().contains("Enderman Spawner")) {
+      ChatColor white = ChatColor.WHITE;
+      if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Enderman Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.enderman")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.enderman"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Enderman}}");
@@ -41,7 +43,7 @@ public class ShopListeners implements Listener {
           player.closeInventory();
           player.sendMessage(error);
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Blaze Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Blaze Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.blaze")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.blaze"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Blaze}}");
@@ -52,7 +54,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Skeleton Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Skeleton Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.skeleton")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.skeleton"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Skeleton}}");
@@ -63,7 +65,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Zombie Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Zombie Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.zombie")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.zombie"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Zombie}}");
@@ -74,7 +76,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Creeper Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Creeper Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.creeper")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.creeper"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Creeper}}");
@@ -85,7 +87,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Cave Spider Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Cave Spider Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.cavespider")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.cavespider"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:CaveSpider}}");
@@ -96,7 +98,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Spider Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Spider Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.spider")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.spider"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Spider}}");
@@ -119,7 +121,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Chicken Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Chicken Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.chicken")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.chicken"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Chicken}}");
@@ -130,7 +132,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Cow Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Cow Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.cow")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.cow"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Cow}}");
@@ -141,7 +143,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Pig Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Pig Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.pig")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.pig"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Pig}}");
@@ -152,7 +154,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Ocelot Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Ocelot Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.ocelot")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.ocelot"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Ozelot}}");
@@ -163,18 +165,18 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Mooshroom Spawner")) {
-        if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.mooshroom")) {
-          ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.mooshroom"));
-          Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:MooshroomCow}}");
-          player.sendMessage(ChatColor.GREEN + ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(ref.getConfig().getInt("prices.mooshroom")) + " has been taken from your account.");
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Mushroom Cow Spawner")) {
+        if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.mushroom")) {
+          ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.mushroom"));
+          Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:MushroomCow}}");
+          player.sendMessage(ChatColor.GREEN + ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(ref.getConfig().getInt("prices.mushroom")) + " has been taken from your account.");
           player.closeInventory();
           ref.cooldown.put(player.getName(), System.currentTimeMillis());
         }else {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Sheep Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Sheep Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.sheep")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.sheep"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Sheep}}");
@@ -185,7 +187,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Bat Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Bat Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.bat")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.bat"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Bat}}");
@@ -196,7 +198,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Rabbit Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Rabbit Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.rabbit")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.rabbit"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Rabbit}}");
@@ -208,7 +210,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Squid Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Squid Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.squid")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.squid"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Squid}}");
@@ -219,7 +221,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Villager Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Villager Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.villager")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.villager"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Villager}}");
@@ -230,9 +232,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }
-      else if (clicked.getItemMeta().getDisplayName().contains("Zombie Pigman Spawner"))
-      {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Zombie Pigman Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.zombiepig")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.zombiepig"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:PigZombie}}");
@@ -243,7 +243,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Silverfish Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Silverfish Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.silverfish")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.silverfish"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Silverfish}}");
@@ -254,7 +254,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Iron Golem Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Iron Golem Spawner")) {
         if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.irongolem")) {
           ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.irongolem"));
           Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:VillagerGolem}}");
@@ -265,7 +265,7 @@ public class ShopListeners implements Listener {
           player.sendMessage(error);
           player.closeInventory();
         }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Slime Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Slime Spawner")) {
           if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.slime")) {
               ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.slime"));
               Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Slime}}");
@@ -276,7 +276,7 @@ public class ShopListeners implements Listener {
               player.sendMessage(error);
               player.closeInventory();
             }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Horse Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Horse Spawner")) {
           if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.horse")) {
               ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.horse"));
               Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:EntityHorse}}");
@@ -287,7 +287,7 @@ public class ShopListeners implements Listener {
               player.sendMessage(error);
               player.closeInventory();
             }
-      }else if (clicked.getItemMeta().getDisplayName().contains("Witch Spawner")) {
+      }else if (clicked.getItemMeta().getDisplayName().equalsIgnoreCase(white + "Witch Spawner")) {
           if (ShopPlugin.economy.getBalance(player) >= ref.getConfig().getInt("prices.witch")) {
               ShopPlugin.economy.withdrawPlayer(player, ref.getConfig().getInt("prices.witch"));
               Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + player.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Witch}}");

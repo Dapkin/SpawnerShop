@@ -1,5 +1,5 @@
 name: SpawnerShop
-version: 3.0
+version: 3.1
 main: me.dapkin.sshop.ShopPlugin
 depend: [Vault]
 commands:

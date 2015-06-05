@@ -33,6 +33,9 @@ prices:
   zombiepig: 100000
   silverfish: 100000
   irongolem: 100000
+  slime: 100000
+  horse: 100000
+  witch: 100000
 spawners:
   enderman: true
   blaze: true
@@ -55,3 +58,6 @@ spawners:
   zombiepigman: true
   silverfish: true
   irongolem: true
+  slime: true
+  horse: true
+  witch: true
