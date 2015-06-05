@@ -6,7 +6,7 @@ SpawnerShop allows player(s) to purchase spawners with ease.
 /spawners  
 /spawners reload
 
-**Permissions:**
+**Permissions:**  
 spawnershop.use  
 spawnershop.reload  
 spawnershop.signs.use  
