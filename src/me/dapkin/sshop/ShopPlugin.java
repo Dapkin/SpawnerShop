@@ -45,69 +45,6 @@ public class ShopPlugin extends JavaPlugin implements Listener {
   
   public void initialiseConfig() {
     FileConfiguration config = getConfig();
-    
-    config.addDefault("options.heads", true);
-    config.addDefault("options.shopname", "Spawner Shop");
-    config.addDefault("options.nopermission", "&aYou do not have permission to do that!");
-    config.addDefault("options.openmessage", "&aOpening Spawner Shop");
-    config.addDefault("options.cooldown", 10);
-    config.addDefault("options.cooldownmessage", "&aYou can't use that command yet!");
-    config.addDefault("options.currencysign", "$");
-    config.addDefault("options.inventorysize", 27);
-    config.addDefault("options.reloadsuccess", "&aYou have successfully reloaded SpawnerShop!");
-    config.addDefault("options.prefix", "&7[&eSpawnerShop&7]");
-    config.addDefault("options.nomoney", "&aYou do not have enough funds!");
-    
-    config.addDefault("prices.enderman", 100000);
-    config.addDefault("prices.blaze", 100000);
-    config.addDefault("prices.skeleton", 100000);
-    config.addDefault("prices.zombie", 100000);
-    config.addDefault("prices.creeper", 100000);
-    config.addDefault("prices.cavespider", 100000);
-    config.addDefault("prices.spider", 100000);
-    config.addDefault("prices.wolf", 100000);
-    config.addDefault("prices.chicken", 100000);
-    config.addDefault("prices.cow", 100000);
-    config.addDefault("prices.pig", 100000);
-    config.addDefault("prices.ocelot", 100000);
-    config.addDefault("prices.mushroom", 100000);
-    config.addDefault("prices.sheep", 100000);
-    config.addDefault("prices.bat", 100000);
-    config.addDefault("prices.rabbit", 100000);
-    config.addDefault("prices.squid", 100000);
-    config.addDefault("prices.villager", 100000);
-    config.addDefault("prices.zombiepig", 100000);
-    config.addDefault("prices.silverfish", 100000);
-    config.addDefault("prices.irongolem", 100000);
-    config.addDefault("prices.slime", 100000);
-    config.addDefault("prices.horse", 100000);
-    config.addDefault("prices.witch", 100000);
-    
-    config.addDefault("spawners.enderman", true);
-    config.addDefault("spawners.blaze", true);
-    config.addDefault("spawners.skeleton", true);
-    config.addDefault("spawners.zombie", true);
-    config.addDefault("spawners.creeper", true);
-    config.addDefault("spawners.cavespider", true);
-    config.addDefault("spawners.spider", true);
-    config.addDefault("spawners.wolf", true);
-    config.addDefault("spawners.chicken", true);
-    config.addDefault("spawners.cow", true);
-    config.addDefault("spawners.pig", true);
-    config.addDefault("spawners.ocelot", true);
-    config.addDefault("spawners.mushroom", true);
-    config.addDefault("spawners.sheep", true);
-    config.addDefault("spawners.bat", true);
-    config.addDefault("spawners.rabbit", true);
-    config.addDefault("spawners.squid", true);
-    config.addDefault("spawners.villager", true);
-    config.addDefault("spawners.zombiepigman", true);
-    config.addDefault("spawners.silverfish", true);
-    config.addDefault("spawners.irongolem", true);
-    config.addDefault("spawners.slime", true);
-    config.addDefault("spawners.horse", true);
-    config.addDefault("spawners.witch", true);
-    
     config.options().copyDefaults(true);
     saveConfig();
   }
