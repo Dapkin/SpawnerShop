@@ -50,7 +50,7 @@ public class ShopPlugin extends JavaPlugin implements Listener {
   }
   
   public static Economy economy = null;
-  final FileConfiguration config = getConfig();
+  FileConfiguration config = getConfig();
   int cooldownTime = config.getInt("options.cooldown");
   
   public void onDisable() {
