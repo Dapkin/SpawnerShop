@@ -12,11 +12,7 @@ import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -24,14 +20,15 @@ import org.bukkit.inventory.meta.SkullMeta;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class ShopPlugin extends JavaPlugin implements Listener {
-  public static ShopPlugin plugin;
+public class ShopPlugin extends JavaPlugin {
+  ShopPlugin plugin;
   HashMap<String, Long> cooldown = new HashMap<String, Long>();
   
   public void onEnable() {
     Bukkit.getServer().getPluginManager().registerEvents(new ShopSigns(this), this);
     Bukkit.getServer().getPluginManager().registerEvents(new ShopListeners(this), this);
     initialiseConfig();
+    this.getCommand("spawners").setExecutor(new Commands(this));
     setupEconomy();
     setupInv();
     try {
@@ -50,12 +47,11 @@ public class ShopPlugin extends JavaPlugin implements Listener {
   }
   
   public static Economy economy = null;
-  FileConfiguration config = getConfig();
-  int cooldownTime = config.getInt("options.cooldown");
   
   public void onDisable() {
-	  
+	  plugin = null;
   }
+  FileConfiguration config = getConfig();
   
   private boolean setupEconomy() {
     RegisteredServiceProvider<Economy> economyProvider = getServer().getServicesManager().getRegistration(Economy.class);
@@ -480,40 +476,5 @@ public class ShopPlugin extends JavaPlugin implements Listener {
         spawnerInv.addItem(witch);
       }
     }
-  }
-  
-  public int cooldown_time = config.getInt("options.cooldown");
-  @Override
-  public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-    Player p = (Player)sender;
-    if (((p instanceof Player)) && (cmd.getName().equalsIgnoreCase("spawners"))) {
-      if (args.length == 0) {
-        if (p.hasPermission("spawnershop.use")) {
-          if (cooldown.containsKey(p.getName())) {
-            long diff = (System.currentTimeMillis() - ((Long)cooldown.get(p.getName())).longValue()) / 1000L;
-            if (diff < cooldown_time) {
-              p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.cooldownmessage")));
-            }else {
-              p.openInventory(spawnerInv);
-              p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.openmessage")));
-            }
-          }else {
-            p.openInventory(spawnerInv);
-            p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.openmessage")));
-          }
-        }else {
-          p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.nopermission")));
-        }
-      }else if ((args.length == 1) && (args[0].equalsIgnoreCase("reload"))) {
-        if ((p.hasPermission("spawnershop.reload")) || (p.isOp())) {
-          spawnerInv.clear();
-          setupInv();
-          p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.reloadsuccess")));
-        }else {
-          p.sendMessage(ChatColor.translateAlternateColorCodes('&', config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', config.getString("options.nopermission")));
-        }
-      }
-    }
-    return true;
   }
 }
