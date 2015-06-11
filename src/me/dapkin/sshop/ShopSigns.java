@@ -13,20 +13,15 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.block.SignChangeEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
-public class ShopSigns
-  implements Listener
-{
-  public final ShopPlugin ref;
+public class ShopSigns implements Listener {
+  public final ShopPlugin plugin;
   
-  public ShopSigns(ShopPlugin inst)
-  {
-    this.ref = inst;
+  public ShopSigns(ShopPlugin plugin) {
+    this.plugin = plugin;
   }
   
-  public boolean isInt(String s)
-  {
-    try
-    {
+  public boolean isInt(String s) {
+    try{
       Integer.parseInt(s);
       return true;
     }
@@ -54,12 +49,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.enderman")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.enderman")));
             }
           }
           else if (line3.equalsIgnoreCase("Blaze"))
@@ -70,12 +65,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.blaze")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.blaze")));
             }
           }
           else if (line3.equalsIgnoreCase("Skeleton"))
@@ -86,12 +81,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.skeleton")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.skeleton")));
             }
           }
           else if (line3.equalsIgnoreCase("Zombie"))
@@ -102,12 +97,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.zombie")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.zombie")));
             }
           }
           else if (line3.equalsIgnoreCase("Creeper"))
@@ -118,12 +113,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.creeper")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.creeper")));
             }
           }
           else if (line3.equalsIgnoreCase("CaveSpider"))
@@ -134,12 +129,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.cavespider")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.cavespider")));
             }
           }
           else if (line3.equalsIgnoreCase("Spider"))
@@ -150,12 +145,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.spider")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.spider")));
             }
           }
           else if (line3.equalsIgnoreCase("Wolf"))
@@ -166,12 +161,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.wolf")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.wolf")));
             }
           }
           else if (line3.equalsIgnoreCase("Chicken"))
@@ -182,12 +177,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.chicken")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.chicken")));
             }
           }
           else if (line3.equalsIgnoreCase("Cow"))
@@ -198,12 +193,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.cow")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.cow")));
             }
           }
           else if (line3.equalsIgnoreCase("Pig"))
@@ -214,12 +209,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.pig")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.pig")));
             }
           }
           else if (line3.equalsIgnoreCase("Ocelot"))
@@ -230,12 +225,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.ocelot")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.ocelot")));
             }
           }
           else if (line3.equalsIgnoreCase("Mushroom Cow"))
@@ -246,12 +241,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.mushroom")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.mushroom")));
             }
           }
           else if (line3.equalsIgnoreCase("Sheep"))
@@ -262,12 +257,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.sheep")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.sheep")));
             }
           }
           else if (line3.equalsIgnoreCase("Bat"))
@@ -278,12 +273,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.bat")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.bat")));
             }
           }
           else if (line3.equalsIgnoreCase("Rabbit"))
@@ -294,12 +289,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.rabbit")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.rabbit")));
             }
           }
           else if (line3.equalsIgnoreCase("Squid"))
@@ -310,12 +305,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.squid")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.squid")));
             }
           }
           else if (line3.equalsIgnoreCase("Villager"))
@@ -326,12 +321,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.villager")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.villager")));
             }
           }
           else if (line3.equalsIgnoreCase("ZombiePigman"))
@@ -342,12 +337,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.zombiepig")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.zombiepig")));
             }
           }
           else if (line3.equalsIgnoreCase("Silverfish"))
@@ -358,12 +353,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.silverfish")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.silverfish")));
             }
           }
           else if (line3.equalsIgnoreCase("IronGolem"))
@@ -374,12 +369,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.irongolem")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.irongolem")));
             }
           }
           else if (line3.equalsIgnoreCase("Slime"))
@@ -390,12 +385,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.slime")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.slime")));
             }
           }
           else if (line3.equalsIgnoreCase("Horse"))
@@ -406,12 +401,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.horse")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.horse")));
             }
           }
           else if (line3.equalsIgnoreCase("Witch"))
@@ -422,12 +417,12 @@ public class ShopSigns
             if (isInt(price))
             {
               int price1 = Integer.parseInt(price);
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(price1));
             }
             else
             {
               p.sendMessage("You have either not entered a price, or entered one incorrectly. The price has been set to the one specified in the config!");
-              e.setLine(3, this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(this.ref.getConfig().getInt("prices.witch")));
+              e.setLine(3, plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(plugin.getConfig().getInt("prices.witch")));
             }
           }
           else
@@ -452,7 +447,7 @@ public class ShopSigns
       }
       else
       {
-        p.sendMessage(ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.nopermission")));
+        p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', plugin.config.getString("options.nopermission")));
       }
     }
   }
@@ -469,9 +464,9 @@ public class ShopSigns
         if ((p.hasPermission("spawnershop.signs.use")) || (p.isOp()))
         {
           String line3 = sign.getLine(2);
-          String error = ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.nomoney"));
+          String error = ChatColor.translateAlternateColorCodes('&', plugin.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', plugin.config.getString("options.nomoney"));
           String price = sign.getLine(3);
-          price = price.replace(this.ref.config.getString("options.currencysign"), "");
+          price = price.replace(plugin.config.getString("options.currencysign"), "");
           price = price.replace(",", "");
           int rprice = Integer.parseInt(price);
           if (sign.getLine(1).equalsIgnoreCase("Buy")) {
@@ -481,7 +476,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Enderman}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -491,7 +486,7 @@ public class ShopSigns
             	if(ShopPlugin.economy.getBalance(p) >= rprice) {
             		ShopPlugin.economy.withdrawPlayer(p, rprice);
             		Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Blaze}}");
-            		 p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+            		 p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
             	}else {
             		p.sendMessage(error);
             	}
@@ -502,7 +497,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Skeleton}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -515,7 +510,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Zombie}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -528,7 +523,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Creeper}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -541,7 +536,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:CaveSpider}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -554,7 +549,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Spider}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -567,7 +562,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Wolf}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -578,9 +573,9 @@ public class ShopSigns
             {
               if (ShopPlugin.economy.getBalance(p) >= rprice)
               {
-                ShopPlugin.economy.withdrawPlayer(p, this.ref.getConfig().getInt("prices.chicken"));
+                ShopPlugin.economy.withdrawPlayer(p, plugin.getConfig().getInt("prices.chicken"));
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Chicken}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -593,7 +588,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Cow}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -606,7 +601,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Pig}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -619,7 +614,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Ozelot}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -632,7 +627,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:MushroomCow}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -645,7 +640,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Sheep}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -658,7 +653,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Bat}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -671,7 +666,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Rabbit}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -684,7 +679,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Squid}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -697,7 +692,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Villager}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -710,7 +705,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:PigZombie}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -723,7 +718,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Silverfish}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -735,7 +730,7 @@ public class ShopSigns
               {
                 ShopPlugin.economy.withdrawPlayer(p, rprice);
                 Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:VillagerGolem}}");
-                p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
               }
               else
               {
@@ -747,7 +742,7 @@ public class ShopSigns
                 {
                   ShopPlugin.economy.withdrawPlayer(p, rprice);
                   Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Slime}}");
-                  p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                  p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
                 }
                 else
                 {
@@ -759,7 +754,7 @@ public class ShopSigns
                 {
                   ShopPlugin.economy.withdrawPlayer(p, rprice);
                   Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:EntityHorse}}");
-                  p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                  p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
                 }
                 else
                 {
@@ -771,7 +766,7 @@ public class ShopSigns
                 {
                   ShopPlugin.economy.withdrawPlayer(p, rprice);
                   Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "give " + p.getName() + " 52 1 0 {BlockEntityTag:{EntityId:Witch}}");
-                  p.sendMessage(ChatColor.GREEN + this.ref.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
+                  p.sendMessage(ChatColor.GREEN + plugin.config.getString("options.currencysign") + NumberFormat.getNumberInstance(Locale.US).format(rprice) + " has been taken from your account.");
                 }
                 else
                 {
@@ -782,7 +777,7 @@ public class ShopSigns
         }
         else
         {
-          p.sendMessage(ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', this.ref.config.getString("options.nopermission")));
+          p.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.config.getString("options.prefix")) + " " + ChatColor.translateAlternateColorCodes('&', plugin.config.getString("options.nopermission")));
         }
       }
     }
